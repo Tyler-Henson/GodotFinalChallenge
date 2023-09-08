@@ -67,6 +67,12 @@ __meta__ = {
 [node name="Dummy" parent="Mobs" instance=ExtResource( 5 )]
 position = Vector2( 979, 318 )
 
+[node name="Dummy2" parent="Mobs" instance=ExtResource( 5 )]
+position = Vector2( 700, 776 )
+
+[node name="Dummy3" parent="Mobs" instance=ExtResource( 5 )]
+position = Vector2( 277, 839 )
+
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
