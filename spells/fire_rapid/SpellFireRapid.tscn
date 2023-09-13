@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://spells/fire_basic/SpellBasicFire.tscn" type="PackedScene" id=1]
+
+[node name="SpellFireRapid" instance=ExtResource( 1 )]
+random_angle_degrees = 20.0
+fire_rate = 10.0
