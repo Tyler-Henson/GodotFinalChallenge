@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://mobs/Mob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mobs/bomb/bomb_active.png" type="Texture" id=2]
 [ext_resource path="res://mobs/bomb/bomb_inactive.png" type="Texture" id=3]
 [ext_resource path="res://mobs/bomb/explode.wav" type="AudioStream" id=4]
+[ext_resource path="res://mobs/bomb/Bomb.gd" type="Script" id=5]
 [ext_resource path="res://bullets/particle_bullet.png" type="Texture" id=6]
+[ext_resource path="res://mobs/bomb/BombCannon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mobs/bomb/shock_area.svg" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -127,6 +129,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.356863 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("ShockArea/CollisionShape2D:shape:radius")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.1, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 448.403, 559.1 ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "will_explode"
@@ -191,6 +205,7 @@ color_ramp = SubResource( 12 )
 hue_variation = 1.0
 
 [node name="Bomb" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = false
@@ -200,9 +215,6 @@ visible = false
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 1 )
-
-[node name="AttackArea" parent="." index="2"]
-visible = false
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
 shape = SubResource( 2 )
@@ -245,3 +257,7 @@ texture = ExtResource( 6 )
 modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.986667, 0.986667 )
 texture = ExtResource( 8 )
+
+[node name="BombCannon" parent="." index="11" instance=ExtResource( 7 )]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
