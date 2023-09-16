@@ -7,8 +7,8 @@
 [ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireBasic.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireRapid.tscn" type="PackedScene" id=7]
-[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=8]
-[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=9]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=9]
 
 [node name="TestRoom" type="YSort"]
 
@@ -72,17 +72,11 @@ __meta__ = {
 [node name="Dummy" parent="Mobs" instance=ExtResource( 5 )]
 position = Vector2( 979, 318 )
 
-[node name="Dummy2" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 700, 776 )
+[node name="Bomb" parent="Mobs" instance=ExtResource( 8 )]
+position = Vector2( 1253, 472 )
 
-[node name="Dummy3" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 277, 839 )
-
-[node name="Bomb" parent="Mobs" instance=ExtResource( 9 )]
-position = Vector2( 1624, 670 )
-
-[node name="Shield" parent="Mobs" instance=ExtResource( 8 )]
-position = Vector2( 771, 1099 )
+[node name="Shield" parent="Mobs" instance=ExtResource( 9 )]
+position = Vector2( 1022, 700 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {

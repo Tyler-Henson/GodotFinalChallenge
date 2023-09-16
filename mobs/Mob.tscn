@@ -7,7 +7,7 @@
 [ext_resource path="res://mobs/kill.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 49.3555
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id=5]
 resource_local_to_scene = true
