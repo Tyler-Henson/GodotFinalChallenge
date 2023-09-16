@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pickups/ice_spells/PickupSpellIcePunch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
 [ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pickups/fire_spells/PickupSpellFireBasic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/fire_spells/PickupSpellFireRapid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=9]
 
 [node name="TestRoom" type="YSort"]
 
@@ -67,16 +72,22 @@ __meta__ = {
 [node name="Dummy" parent="Mobs" instance=ExtResource( 5 )]
 position = Vector2( 979, 318 )
 
-[node name="Dummy2" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 700, 776 )
+[node name="Bomb" parent="Mobs" instance=ExtResource( 8 )]
+position = Vector2( 1253, 472 )
 
-[node name="Dummy3" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 277, 839 )
+[node name="Shield" parent="Mobs" instance=ExtResource( 9 )]
+position = Vector2( 1022, 700 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PickupSpellIcePunch" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 140, 521 )
+
+[node name="PickupSpellFireBasic" parent="Items" instance=ExtResource( 6 )]
+position = Vector2( 106, 386 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -548.0
@@ -89,3 +100,6 @@ use this room to test the different mechanics. "
 
 [node name="Robot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 383, 380 )
+
+[node name="PickupSpellFireRapid" parent="." instance=ExtResource( 7 )]
+position = Vector2( 329, 599 )

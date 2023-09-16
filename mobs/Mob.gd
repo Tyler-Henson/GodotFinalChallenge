@@ -95,7 +95,6 @@ func orbit_target() -> void:
 	var offset_from_target := direction.rotated(PI / 6.0) * orbit_distance
 	follow(_target.global_position + offset_from_target)
 
-
 # Called by bullets.
 func take_damage(amount: int) -> void:
 	health -= amount
