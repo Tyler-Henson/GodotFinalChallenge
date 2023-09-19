@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
@@ -7,11 +7,15 @@
 [ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireBasic.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireRapid.tscn" type="PackedScene" id=7]
-[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/spawners/spawner_mob.svg" type="Texture" id=8]
 [ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=9]
 [ext_resource path="res://mobs/sword/Sword.tscn" type="PackedScene" id=10]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=11]
+[ext_resource path="res://rooms/TestRoom.gd" type="Script" id=12]
+[ext_resource path="res://rooms/spawners/Spawner.gd" type="Script" id=13]
 
 [node name="TestRoom" type="YSort"]
+script = ExtResource( 12 )
 
 [node name="bridges" type="TileMap" parent="."]
 z_index = -10
@@ -70,17 +74,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Dummy" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 979, 318 )
-
-[node name="Bomb" parent="Mobs" instance=ExtResource( 8 )]
-position = Vector2( 1253, 472 )
-
-[node name="Shield" parent="Mobs" instance=ExtResource( 9 )]
-position = Vector2( 1022, 700 )
-
-[node name="Sword" parent="Mobs" instance=ExtResource( 10 )]
-position = Vector2( 507, 934 )
+[node name="Spawner" type="Sprite" parent="Mobs"]
+position = Vector2( 1120, 902 )
+texture = ExtResource( 8 )
+script = ExtResource( 13 )
+list = [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
@@ -93,6 +91,9 @@ position = Vector2( 140, 521 )
 [node name="PickupSpellFireBasic" parent="Items" instance=ExtResource( 6 )]
 position = Vector2( 106, 386 )
 
+[node name="PickupSpellFireRapid" parent="Items" instance=ExtResource( 7 )]
+position = Vector2( 329, 599 )
+
 [node name="Label" type="Label" parent="."]
 margin_left = -548.0
 margin_top = -501.0
@@ -104,6 +105,3 @@ use this room to test the different mechanics. "
 
 [node name="Robot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 383, 380 )
-
-[node name="PickupSpellFireRapid" parent="." instance=ExtResource( 7 )]
-position = Vector2( 329, 599 )
