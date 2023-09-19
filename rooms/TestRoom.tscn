@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireRapid.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=9]
+[ext_resource path="res://mobs/sword/Sword.tscn" type="PackedScene" id=10]
 
 [node name="TestRoom" type="YSort"]
 
@@ -77,6 +78,9 @@ position = Vector2( 1253, 472 )
 
 [node name="Shield" parent="Mobs" instance=ExtResource( 9 )]
 position = Vector2( 1022, 700 )
+
+[node name="Sword" parent="Mobs" instance=ExtResource( 10 )]
+position = Vector2( 507, 934 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
