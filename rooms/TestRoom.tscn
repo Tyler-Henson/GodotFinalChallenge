@@ -1,18 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://pickups/ice_spells/PickupSpellIcePunch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
-[ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireBasic.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireRapid.tscn" type="PackedScene" id=7]
-[ext_resource path="res://rooms/spawners/spawner_mob.svg" type="Texture" id=8]
-[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=9]
-[ext_resource path="res://mobs/sword/Sword.tscn" type="PackedScene" id=10]
-[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=11]
+[ext_resource path="res://rooms/spawners/SpawnerTeleporter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://rooms/TestRoom.gd" type="Script" id=12]
-[ext_resource path="res://rooms/spawners/Spawner.gd" type="Script" id=13]
 
 [node name="TestRoom" type="YSort"]
 script = ExtResource( 12 )
@@ -74,11 +70,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Spawner" type="Sprite" parent="Mobs"]
-position = Vector2( 1120, 902 )
-texture = ExtResource( 8 )
-script = ExtResource( 13 )
-list = [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ]
+[node name="SpawnerMob" parent="Mobs" instance=ExtResource( 5 )]
+position = Vector2( 1041, 846 )
+
+[node name="SpawnerTeleporter" parent="Mobs" instance=ExtResource( 8 )]
+position = Vector2( 1019, 253 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {

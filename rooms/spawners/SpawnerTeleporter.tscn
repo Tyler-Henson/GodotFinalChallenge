@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://rooms/spawners/spawner_teleporter.svg" type="Texture" id=1]
+[ext_resource path="res://rooms/teleporter/Teleporter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/spawners/Spawner.gd" type="Script" id=3]
+
+[node name="SpawnerTeleporter" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+list = [ ExtResource( 2 ) ]
+spawning_chance = 100
