@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://pickups/ice_spells/PickupSpellIcePunch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
-[ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireBasic.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/fire_spells/PickupSpellFireRapid.tscn" type="PackedScene" id=7]
-[ext_resource path="res://rooms/spawners/SpawnerTeleporter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=9]
+[ext_resource path="res://mobs/sword/Sword.tscn" type="PackedScene" id=10]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=11]
 [ext_resource path="res://rooms/TestRoom.gd" type="Script" id=12]
 
 [node name="TestRoom" type="YSort"]
@@ -70,11 +73,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SpawnerMob" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 1041, 846 )
+[node name="SpawnerMob" parent="Mobs" instance=ExtResource( 8 )]
+position = Vector2( 1214, 788 )
+spawning_chance = 100
 
-[node name="SpawnerTeleporter" parent="Mobs" instance=ExtResource( 8 )]
-position = Vector2( 1019, 253 )
+[node name="Bomb" parent="Mobs/SpawnerMob" instance=ExtResource( 11 )]
+position = Vector2( 134, -353 )
+
+[node name="Dummy" parent="Mobs/SpawnerMob" instance=ExtResource( 5 )]
+position = Vector2( -320, -570 )
+
+[node name="Shield" parent="Mobs/SpawnerMob" instance=ExtResource( 9 )]
+position = Vector2( -140, 51 )
+
+[node name="Sword" parent="Mobs/SpawnerMob" instance=ExtResource( 10 )]
+position = Vector2( -214, 293 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
