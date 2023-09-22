@@ -1,14 +1,15 @@
 extends YSort
 
-onready var spawner := $Mobs/SpawnerMob
+onready var mob_spawner := $Mobs/SpawnerMob
 
-onready var spawner_teleport := $Mobs/SpawnerTeleporter
+onready var robot_teleport := $SpawnerRobot
 
 
 
 func _ready() -> void:
-	spawner.spawn()
+	#spawner.spawn()
 	#spawner_teleport.spawn()
+	pass
 
 
 

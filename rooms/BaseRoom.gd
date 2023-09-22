@@ -98,6 +98,7 @@ func _hide_bridge(bridge_region: Rect2) -> void:
 			# We remove the tile from the bridge tilemap. Passing -1 to the
 			# set_cellv() function erases the tile at cell_coordinates.
 			_bridges.set_cellv(cell_coordinates, -1)
+			#_bridges.(cell_coordinates, -1)
 			# In the limits tilemap, we draw an invisible wall to block the
 			# player.
 			_limits.set_cellv(cell_coordinates, INVISIBLE_WALL_TILE_INDEX)
